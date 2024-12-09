@@ -1,0 +1,62 @@
+<div class="book-container"> 
+  <h2>Sistema de Locação de Livros</h2>
+
+  <!-- Formulário para adicionar novo livro -->
+  <form (ngSubmit)="addBook()" class="book-form">
+    <h3>Adicionar Novo Livro</h3>
+    <input [(ngModel)]="newBook.title" placeholder="Título" name="title" required />
+    <input [(ngModel)]="newBook.author" placeholder="Autor" name="author" required />
+    <input [(ngModel)]="newBook.gender" placeholder="Gênero" name="gender" required />
+    <input [(ngModel)]="newBook.image" placeholder="URL da Imagem" name="image" />
+    <button type="submit" class="add-button">Adicionar Livro</button>
+  </form>
+
+  <!-- Lista de Livros -->
+  <ul class="book-list">
+    <li *ngFor="let book of books" class="book-item">
+      <div *ngIf="editBook?.id !== book.id; else editTemplate" class="book-info">
+        
+        <!-- Imagem do livro -->
+        <img *ngIf="book.image" [src]="book.image" alt="{{ book.title }}" class="book-image">
+
+        <div class="book-details">
+          <h3>{{ book.title }} <span *ngIf="!book.available" class="unavailable">(Indisponível)</span></h3>
+          <p><strong>Autor:</strong> {{ book.author }}</p>
+          <p><strong>Gênero:</strong> {{ book.gender }}</p>
+          <p>
+            <strong>Status:</strong> 
+            <span [ngClass]="book.available ? 'status-available' : 'status-located'">
+              {{ book.available ? 'Disponível' : 'Locado' }}
+            </span>
+          </p>
+          
+        </div>
+      </div>
+      
+      <!-- Botões de ação -->
+      <div class="book-actions">
+        <button (click)="toggleAvailability(book.id)" class="action-button">
+          {{ book.available ? 'Locar' : 'Devolver' }}
+        </button>
+        <button (click)="startEdit(book)" class="action-button">Editar</button>
+        <button (click)="deleteBook(book.id)" class="delete-button">Remover</button>
+      </div>
+      
+      <!-- Template de edição -->
+      <ng-template #editTemplate>
+        <div *ngIf="editBook" class="edit-form">
+          <h3>Editando: {{ editBook.title }}</h3>
+          <input [(ngModel)]="editBook.title" placeholder="Título" required />
+          <input [(ngModel)]="editBook.author" placeholder="Autor" required />
+          <input [(ngModel)]="editBook.gender" placeholder="Gênero" required />
+          <input [(ngModel)]="editBook.image" placeholder="URL da Imagem" />
+
+          <div class="edit-actions">
+            <button (click)="saveEdit()" class="save-button">Salvar</button>
+            <button (click)="cancelEdit()" class="cancel-button">Cancelar</button>
+          </div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+</div>

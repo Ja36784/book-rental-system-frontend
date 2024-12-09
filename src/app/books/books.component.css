@@ -1,0 +1,180 @@
+/* Contêiner geral */
+.book-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #d6d3d3;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.book-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulário de adição de livro */
+.book-form {
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.book-form h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.book-form input {
+  width: 99%;
+  padding: 5px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.add-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+/* Lista de livros */
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+
+.book-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+  display: flex;
+  flex: 1;
+}
+
+/* Imagem do livro */
+.book-image {
+  width: 100px;
+  height: 150px;
+  margin-right: 15px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+/* Detalhes do livro */
+.book-details {
+  flex: 1;
+}
+
+.book-details h3 {
+  color: #333;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.book-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.unavailable {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Botões de ação */
+.book-actions, .edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-button, .add-button, .save-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover, .save-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #333;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #b3b3b3;
+}
+
+/* Estilos para o formulário de edição */
+.edit-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.edit-form h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Status de disponibilidade */
+.status-available {
+  color: #007bff; /* Azul */
+  font-weight: bold;
+}
+
+.status-located {
+  color: #ffc107; /* Amarelo */
+  font-weight: bold;
+}
